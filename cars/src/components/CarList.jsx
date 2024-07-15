@@ -15,7 +15,9 @@ function CarList() {
 
   const renderedCars = cars.map((car) => {
     return (
-      <div key={car.id} className="panel">
+      <div
+        key={car.id}
+        className="panel max-w-screen-sm flex justify-center items-center space-y-4 gap-4">
         <p>
           {car.name} - ${car.cost}
         </p>

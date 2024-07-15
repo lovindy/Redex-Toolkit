@@ -26,11 +26,12 @@ const CarForm = () => {
   };
 
   return (
-    <div className="car-form panel">
-      <form onSubmit={handleSubmit}>
+    <div className="car-form panel max-w-screen-sm mx-auto flex justify-center items-center">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-center space-y-4">
         <div className="field-group">
           {/* Car Name */}
-          <h1>Car Price</h1>
           <div className="field">
             <label className="label">Car Name : </label>
             <input
@@ -41,7 +42,6 @@ const CarForm = () => {
           </div>
 
           {/* Car Value */}
-          <h1>Car Value</h1>
           <div className="field">
             <label className="label">Car Value : </label>
             <input

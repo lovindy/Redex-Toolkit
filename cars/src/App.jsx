@@ -6,10 +6,10 @@ import CarSearch from "./components/CarSearch";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App flex flex-col max-w-screen-xl mx-auto items-center justify-center mt-36">
       <CarForm />
-      <CarValue />
       <CarList />
+      <CarValue />
       <CarSearch />
     </div>
   );
