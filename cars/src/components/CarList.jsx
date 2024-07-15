@@ -3,8 +3,14 @@ import { removeCar } from "../store";
 
 function CarList() {
   const dispatch = useDispatch();
-  const cars = useSelector((state) => {
-    return state.cars.data;
+  const { cars, name } = useSelector(({ form, cars: { data, searchTerm } }) => {
+    const filteredCars = data.filter((car) => {
+      return car.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    return {
+      cars: filteredCars,
+      name: form.name,
+    };
   });
 
   const handleCarDelete = (car) => {
@@ -14,11 +20,13 @@ function CarList() {
   };
 
   const renderedCars = cars.map((car) => {
+    // decide if this car should be bold
+    const bold = name && car.name.toLowerCase().includes(name.toLowerCase());
     return (
       <div
         key={car.id}
         className="panel max-w-screen-sm flex justify-center items-center space-y-4 gap-4">
-        <p>
+        <p className={bold ? "font-bold" : ""}>
           {car.name} - ${car.cost}
         </p>
         <button
